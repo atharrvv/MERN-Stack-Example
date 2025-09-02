@@ -1,0 +1,20 @@
+service:
+  name: ssh
+  identifier: ssh
+  serviceDefinition:
+    type: Ssh
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: Dockerhub
+                imagePath: eatherv/harness_repository
+                tag: <+input>
+                digest: ""
+              identifier: Artifac
+              type: DockerRegistry
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: default_project
